@@ -1,0 +1,40 @@
+#include "waterwaveprogress.h"
+
+#include <QPainter>
+
+WaterwaveProgress::WaterwaveProgress(QWidget *parent) :
+    QWidget(parent)
+  , m_size(300)
+  , m_shape(Square)
+{
+}
+
+void WaterwaveProgress::setProgressSize(int size)
+{
+    m_size = size;
+}
+
+int WaterwaveProgress::getProgressSize()
+{
+    return m_size;
+}
+
+void WaterwaveProgress::setProgressShape(WaterwaveProgress::Shape shape)
+{
+    m_shape = shape;
+}
+
+WaterwaveProgress::Shape WaterwaveProgress::getProgresShape()
+{
+    return m_shape;
+}
+
+void WaterwaveProgress::paintEvent(QPaintEvent *e)
+{
+    QPainter painter(this);
+    painter.setPen(QPen(Qt::blue,4));//设置画笔形式
+    painter.drawLine(20,20,220,220);//画直线
+    painter.drawLine(20,220,220,20);
+    painter.drawEllipse(20,20,200,200);//画圆
+    painter.drawRect(20,20,200,200);//画矩形
+}

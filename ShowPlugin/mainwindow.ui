@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>624</width>
+    <height>388</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="WaterwaveProgress" name="waterwaveProgress">
+      <property name="progressSize">
+       <number>200</number>
+      </property>
+      <property name="borderWidth">
+       <number>5</number>
+      </property>
+      <property name="boderColor">
+       <color>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </property>
+      <property name="waterwaveColor">
+       <color>
+        <red>7</red>
+        <green>127</green>
+        <blue>255</blue>
+       </color>
+      </property>
+      <property name="bgColor">
+       <color alpha="160">
+        <red>159</red>
+        <green>159</green>
+        <blue>159</blue>
+       </color>
+      </property>
+      <property name="textColor">
+       <color>
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </property>
+      <property name="textFamily">
+       <string notr="true">Microsoft YaHei</string>
+      </property>
+      <property name="textSize">
+       <number>25</number>
+      </property>
+      <property name="percent">
+       <number>50</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>WaterwaveProgress</class>
+   <extends>QWidget</extends>
+   <header>waterwaveprogress.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
