@@ -61,12 +61,12 @@ void WaterwaveProgress::setBorderWidth(int thickness)
     m_borderWidth = thickness;
 }
 
-QColor WaterwaveProgress::boderColor()
+QColor WaterwaveProgress::borderColor()
 {
     return m_borderColor;
 }
 
-void WaterwaveProgress::setBoderColor(QColor color)
+void WaterwaveProgress::setBorderColor(QColor color)
 {
     m_borderColor = color;
 }

@@ -14,7 +14,7 @@ class QDESIGNER_WIDGET_EXPORT  WaterwaveProgress : public QWidget
     Q_PROPERTY(Shape progressShape READ progressShape WRITE setProgressShape)
     Q_ENUMS(Shape)
     Q_PROPERTY(int borderWidth READ borderWidth WRITE setBorderWidth )
-    Q_PROPERTY(QColor boderColor READ boderColor WRITE setBoderColor)
+    Q_PROPERTY(QColor borderColor READ borderColor WRITE setBorderColor)
     Q_PROPERTY(QColor waterwaveColor READ waterwaveColor WRITE setWaterwaveColor)
     Q_PROPERTY(QColor bgColor READ bgColor WRITE setBgColor)
 
@@ -40,8 +40,8 @@ public:
     int borderWidth();
     void setBorderWidth(int thickness);
 
-    QColor boderColor();
-    void setBoderColor(QColor color);
+    QColor borderColor();
+    void setBorderColor(QColor color);
 
     QColor waterwaveColor();
     void setWaterwaveColor(QColor color);
