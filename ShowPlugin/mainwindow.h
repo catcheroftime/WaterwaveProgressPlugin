@@ -25,8 +25,6 @@ private slots:
 
     void on_comboBox_shape_currentIndexChanged(int index);
 
-    void on_spinBox_textsize_editingFinished();
-
     void on_spinBox_percent_editingFinished();
 
     void on_spinBox_wavewidth_editingFinished();
@@ -41,7 +39,7 @@ private slots:
 
     void on_ptn_textcolor_clicked();
 
-    void on_lineEdit_font_editingFinished();
+    void on_ptn_font_clicked();
 
 private:
     Ui::MainWindow *ui;

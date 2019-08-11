@@ -14,8 +14,7 @@ WaterwaveProgress::WaterwaveProgress(QWidget *parent) :
   , m_borderColor(Qt::black)
   , m_bgColor(QColor(160,160,160))
   , m_textColor(Qt::white)
-  , m_textFamily("Microsoft YaHei")
-  , m_textSize(25)
+  , m_textFont{"Microsoft Tai Le",48}
   , m_waterwaveColor(QColor(5,125,255))
   , m_waveHeight(10)
   , m_waveWidth(30)
@@ -101,26 +100,14 @@ void WaterwaveProgress::setTextColor(QColor color)
     m_textColor = color;
 }
 
-QString WaterwaveProgress::textFamily()
+QFont WaterwaveProgress::textFont()
 {
-    return m_textFamily;
+    return m_textFont;
 }
 
-void WaterwaveProgress::setTextFamily(QString family)
+void WaterwaveProgress::setTextFont(QFont font)
 {
-    m_textFamily = family;
-}
-
-int WaterwaveProgress::textSize()
-{
-    return m_textSize;
-}
-
-void WaterwaveProgress::setTextSize(int textSize)
-{
-    if ( textSize < 0 || textSize > 25)
-        return;
-    m_textSize = textSize;
+    m_textFont = font;
 }
 
 int WaterwaveProgress::waveHeight()
@@ -224,9 +211,7 @@ void WaterwaveProgress::drawWaterwave(QPainter &painter)
 
 void WaterwaveProgress::drawText(QPainter &painter)
 {
-    int font_size = m_size*m_textSize/100;
-    QFont font{m_textFamily, font_size};
     painter.setPen(m_textColor);
-    painter.setFont(font);
+    painter.setFont(m_textFont);
     painter.drawText(this->rect(), Qt::AlignCenter, QString("%0%").arg(QString::number(m_percent)));
 }

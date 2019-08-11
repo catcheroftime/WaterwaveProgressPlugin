@@ -19,8 +19,7 @@ class QDESIGNER_WIDGET_EXPORT  WaterwaveProgress : public QWidget
     Q_PROPERTY(QColor bgColor READ bgColor WRITE setBgColor)
 
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor)
-    Q_PROPERTY(QString textFamily READ textFamily WRITE setTextFamily)
-    Q_PROPERTY(int textSize READ textSize WRITE setTextSize)
+    Q_PROPERTY(QFont textFont READ textFont WRITE setTextFont)
 
     Q_PROPERTY(int waveHeight READ waveHeight WRITE setWaveHeight)
     Q_PROPERTY(int waveWidth READ waveWidth WRITE setWaveWidth)
@@ -52,11 +51,8 @@ public:
     QColor textColor();
     void setTextColor(QColor color);
 
-    QString textFamily();
-    void setTextFamily(QString family);
-
-    int textSize();
-    void setTextSize(int textSize);
+    QFont textFont();
+    void setTextFont(QFont font);
 
     int waveHeight();
     void setWaveHeight(int height);
@@ -79,8 +75,7 @@ private:
     QColor m_bgColor;
 
     QColor m_textColor;
-    QString m_textFamily;
-    float m_textSize;
+    QFont m_textFont;
 
     QColor m_waterwaveColor;
     int m_waveHeight;

@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <QColorDialog>
-
+#include <QFontDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,8 +29,6 @@ void MainWindow::initViewDefault()
         ui->comboBox_shape->setCurrentIndex(0);
 
     ui->spinBox_borderwidth->setValue(ui->waterwaveProgress->borderWidth());
-    ui->spinBox_textsize->setValue(ui->waterwaveProgress->textSize());
-    ui->lineEdit_font->setText(ui->waterwaveProgress->textFamily());
     ui->spinBox_percent->setValue(ui->waterwaveProgress->percent());
     ui->spinBox_waveheight->setValue(ui->waterwaveProgress->waveHeight());
     ui->spinBox_wavewidth->setValue(ui->waterwaveProgress->waveWidth());
@@ -72,11 +70,6 @@ void MainWindow::on_comboBox_shape_currentIndexChanged(int index)
         ui->waterwaveProgress->setProgressShape(WaterwaveProgress::Shape::Square);
 }
 
-void MainWindow::on_spinBox_textsize_editingFinished()
-{
-    int textsize = ui->spinBox_textsize->value();
-    ui->waterwaveProgress->setTextSize(textsize);
-}
 
 void MainWindow::on_spinBox_percent_editingFinished()
 {
@@ -140,12 +133,6 @@ void MainWindow::on_ptn_textcolor_clicked()
     }
 }
 
-void MainWindow::on_lineEdit_font_editingFinished()
-{
-    QString font = ui->lineEdit_font->text();
-    ui->waterwaveProgress->setTextFamily(font);
-}
-
 QString MainWindow::color2string(QColor color)
 {
     QString result = QString("rgb(%0,%1,%2)").arg(color.red()).arg(color.green()).arg(color.blue());
@@ -164,3 +151,13 @@ bool MainWindow::selectColor(QColor &selectcolor,QColor currentcolor)
     return false;
 }
 
+
+void MainWindow::on_ptn_font_clicked()
+{
+    QFontDialog dialog;
+    dialog.setCurrentFont(ui->waterwaveProgress->textFont());
+    if (dialog.exec() == QDialog::Accepted) {
+        QFont selectcolor = dialog.currentFont();
+        ui->waterwaveProgress->setTextFont(selectcolor);
+    }
+}
