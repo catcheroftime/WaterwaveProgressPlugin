@@ -23,6 +23,8 @@ void MainWindow::initViewDefault()
 {
     ui->spinBox_size->setValue(ui->waterwaveProgress->progressSize());
 
+    ui->waterwaveProgress_2->setProgressShape(WaterwaveProgress::Shape::Square);
+
     if (ui->waterwaveProgress->progressShape() == WaterwaveProgress::Shape::Square)
         ui->comboBox_shape->setCurrentIndex(1);
     else
@@ -54,12 +56,14 @@ void MainWindow::on_spinBox_size_editingFinished()
 {
     int size = ui->spinBox_size->value();
     ui->waterwaveProgress->setProgressSize(size);
+    ui->waterwaveProgress_2->setProgressSize(size);
 }
 
 void MainWindow::on_spinBox_borderwidth_editingFinished()
 {
     int borderwidth = ui->spinBox_borderwidth->value();
     ui->waterwaveProgress->setBorderWidth(borderwidth);
+    ui->waterwaveProgress_2->setBorderWidth(borderwidth);
 }
 
 void MainWindow::on_comboBox_shape_currentIndexChanged(int index)
@@ -75,18 +79,21 @@ void MainWindow::on_spinBox_percent_editingFinished()
 {
     int percent = ui->spinBox_percent->value();
     ui->waterwaveProgress->setPercent(percent);
+    ui->waterwaveProgress_2->setPercent(percent);
 }
 
 void MainWindow::on_spinBox_wavewidth_editingFinished()
 {
     int wavewidth = ui->spinBox_wavewidth->value();
     ui->waterwaveProgress->setWaveWidth(wavewidth);
+    ui->waterwaveProgress_2->setWaveWidth(wavewidth);
 }
 
 void MainWindow::on_spinBox_waveheight_editingFinished()
 {
     int waveheight = ui->spinBox_waveheight->value();
-    ui->waterwaveProgress->setWaveHeight(waveheight);
+    ui->waterwaveProgress->setWaveHeight(waveheight);    
+    ui->waterwaveProgress_2->setWaveHeight(waveheight);
 }
 
 void MainWindow::on_ptn_bordercolor_clicked()
@@ -96,6 +103,7 @@ void MainWindow::on_ptn_bordercolor_clicked()
     bool ok = selectColor(selectcolor, bordercolor);
     if (ok) {
         ui->waterwaveProgress->setBorderColor(selectcolor);
+        ui->waterwaveProgress_2->setBorderColor(selectcolor);
         ui->ptn_bordercolor->setStyleSheet(QString("background:")+color2string(selectcolor));
     }
 }
@@ -107,6 +115,7 @@ void MainWindow::on_ptn_waterwavecolor_clicked()
     bool ok = selectColor(selectcolor, wavecolor);
     if (ok) {
         ui->waterwaveProgress->setWaterwaveColor(selectcolor);
+        ui->waterwaveProgress_2->setWaterwaveColor(selectcolor);
         ui->ptn_waterwavecolor->setStyleSheet(QString("background:")+color2string(selectcolor));
     }
 }
@@ -118,6 +127,7 @@ void MainWindow::on_ptn_bgcolor_clicked()
     bool ok = selectColor(selectcolor, bgcolor);
     if (ok) {
         ui->waterwaveProgress->setBgColor(selectcolor);
+        ui->waterwaveProgress_2->setBgColor(selectcolor);
         ui->ptn_bgcolor->setStyleSheet(QString("background:")+color2string(selectcolor));
     }
 }
@@ -129,6 +139,7 @@ void MainWindow::on_ptn_textcolor_clicked()
     bool ok = selectColor(selectcolor, textcolor);
     if (ok) {
         ui->waterwaveProgress->setTextColor(selectcolor);
+        ui->waterwaveProgress_2->setTextColor(selectcolor);
         ui->ptn_textcolor->setStyleSheet(QString("background:")+color2string(selectcolor));
     }
 }
@@ -159,5 +170,6 @@ void MainWindow::on_ptn_font_clicked()
     if (dialog.exec() == QDialog::Accepted) {
         QFont selectcolor = dialog.currentFont();
         ui->waterwaveProgress->setTextFont(selectcolor);
+        ui->waterwaveProgress_2->setTextFont(selectcolor);
     }
 }
